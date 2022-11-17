@@ -13,7 +13,14 @@ const exampleSongData = require("../data/songs");
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortByRuntimeAscending(songs) {}
+function sortByRuntimeAscending(songs) {
+  return songs.sort(function(a, b) {
+    let keyA = a.runtimeInSeconds
+    let keyB = b.runtimeInSeconds
+    return keyA-keyB
+  });
+  
+}
 
 /**
  * Reorders the array so that the song objects are organized by their artist name. The artist that comes last in the alphabet should come first.
@@ -23,7 +30,13 @@ function sortByRuntimeAscending(songs) {}
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortByArtistNameDescending(songs) {}
+function sortByArtistNameDescending(songs) {
+  return songs.sort(function(a,b) {
+    let keyA = a.artist.toLowerCase()
+    let keyB = b.artist.toLowerCase()
+    return keyB.localeCompare(keyA)
+  })
+}
 
 /**
  * Reorders the array so that the song objects are organized by their song title. The title that comes first in the alphabet should come first.
@@ -33,7 +46,13 @@ function sortByArtistNameDescending(songs) {}
  * @param {Object[]} songs - An array of songs. See the song data for more.
  * @returns {Object[]}
  */
-function sortBySongTitleAscending(songs) {}
+function sortBySongTitleAscending(songs) {
+  return songs.sort(function(a,b) {
+    let keyA = a.title.toLowerCase()
+    let keyB = b.title.toLowerCase()
+    return keyA.localeCompare(keyB)
+  })
+}
 
 module.exports = {
   sortByRuntimeAscending,
